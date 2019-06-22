@@ -1,3 +1,5 @@
+import { ADD_NEW_TODO, TOGGLE_TODO } from "../actions";
+
 const initialState = {
     title: "My Todo List",
     todos: [
@@ -25,8 +27,24 @@ const initialState = {
 };
 
 function reducer(state = initialState, action) {
-    return {
-        title: 'Hello form Todo App!'
+    switch(action.type) {
+        case ADD_NEW_TODO:
+            return {
+                state,
+                todos: [...state.todos,
+                    {
+                    value: action.payload,
+                    completed: false
+                    }
+                ]
+            }
+        case TOGGLE_TODO:
+            return {
+                ...state,
+                todos: state.todos.map((todo, index) => action.payload === index ? {...todo, completed: !todo.completed} : todo)
+            }
+        default:
+            return state;
     }
 };
 
