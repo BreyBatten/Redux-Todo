@@ -4,7 +4,7 @@ export const TOGGLE_TODO = 'TOGGLE_TODO';
 export function addNewTodo(newTodo) {
     return {
         type: ADD_NEW_TODO,
-        payload: { value: newTodo, completed: false}
+        payload: newTodo
     }
 }
 

@@ -29,7 +29,7 @@ class AddTodo extends React.Component {
                     value= {this.state.newTodo}
                     onChange={this.handleChange}
                 />
-                <button onClick={this.handleSubmit}>Submit</button>
+                <button onClick={this.handleSubmit}>Add To-Do!</button>
             </form>
         )
     }
